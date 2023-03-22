@@ -1,4 +1,3 @@
-
 # Tema 1: Sistemas OLTP y Sistemas OLAP
 - **OLTP**: On Line **Analytical** Processing
 - **OLAP**: On Line **Transactional** Processing
@@ -201,6 +200,7 @@ Desde 2013 la tendencia ha sido generar un autoservicio de transformación de da
 
 ## 2.4. Conclusiones
 
+> No data
 
 # 3. Modelo de datos Multidimensional
 
@@ -254,7 +254,6 @@ En los **Hechos** podemos definir:
   - Semiaditivas: A veces tiene sentido sumar (depende de la dimensión)
 - **Granularidad**: 
 
-
 ## 3.3. Modelo lógico
 
 Nos vamos a preocupar cómo se implementa lo definido en el modelo conceptual.
@@ -276,11 +275,64 @@ Diferentes posibilidades:
   - Hay datos repetidos.
   - Mejor para hacer consultas.
 
-
-
 ## 3.4. Modelo físico
 
-
+> No data
 
 ## 3.5. Conclusiones
 
+> No data
+
+# 4. Diseño Multidimensional - Sistemas Multidimensionales
+## 4.1. Ciclo de vida
+
+Cuando hablamos de diseño multidimensional, hay que hablar del componente ETL.
+
+Puede existir un problema con los ETL: que no se puedan cargar los datos.
+
+[//]: # (Isabel te va a pasar las diapositivas con los diagramas y tablas)
+
+El enfoque más razonable es el **enfoque mixto**. Hay que diferenciar estos tipos de sistemas de los sistemas OLTP.
+
+## 4.2. Diseño conceptual
+
+Primera pregunta: ¿Por qué áreas empezamos a hacer sistemas OLAP? --> Determinar el de mayor potencial de beneficios.
+
+> ***IMPORTANTE: VA A PREGUNTAR DE ESTO***
+
+A partir de aquí:
+1. **Seleccionar la granularidad del proceso de negocio**: El nivel de detalle de las dimensiones.
+    1. **Determinar y expresar el significado de los hechos**: 
+    2. **Definir las bases**:
+2. **Diseñar las dimensiones**:
+    1. **Niveles y jerarquías**:
+3. **Seleccionar las mediciones (determinadas por las dimensiones)**: 
+    1. **Aditividad y mediciones calculadas**:
+4. **Estimar el número de instancias (dimensiones y hechos)**:
+
+- Extra: Si se dispone de otros diseños multidimensionales, conformar dimensiones y mediciones.
+
+> Recordatorio: Las bases identifican inequívocamente a los hechos.
+
+> Ejemplo: Comedores Universitarios:
+> 1. Los hechos son "*Los gramos que sobran de la comida*" y las bases serán: *Menú*, *persona*, *día*, *comedor*, ...
+> 2. En "*persona*" sería nivel más bajo (*persona concreta*) y nivel más alto (*todo*). Y luego se añaden los intermedios, que pueden ser muchas cosas distintas. Lo más importante es que solo haya una única opción abajo del todo y una única opción arriba del todo (*todo*).
+> 3. Le miden los *gramos*, el *importe* (no el *precio*), etc.
+> 4. Debe ser una estimación realista, ni exagerada ni minorada.
+
+## 4.2.1. Ejemplo de esquemas
+
+En un diagrama Entidad-Relación, es muy probable tener una relación (1,n)-(1,n) [o dicho de otra forma n-m] que sea de donde tirar y marcar la relación que indicará el "cuánto".
+
+E
+## 4.3. Diseño lógico
+## 4.3.1. Excepciones: dimensión degenerada
+## 4.3.1. Excepciones: dimensiones con varios papeles
+## 4.3.1. Excepciones: dimensión cajón de sastre
+## 4.3.1. Excepciones: SCD (dimensiones lentamente cambiantes)
+## 4.3.1. Excepciones: desdoblamiento de dimensiones
+## 4.3.1. Excepciones: dimensión de mediciones
+## 4.4. Diseño físico
+## 4.4.1. Partición de la tabla de hechos
+## 4.4.2. Índices de mapa de bits y de join
+## 4.5. Conclusiones y bibliografía
